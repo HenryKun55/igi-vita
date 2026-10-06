@@ -69,25 +69,54 @@ Updating to a newer version only needs the new vpk; your game data and saves in
 
 ## Controls
 
+Default controls in play:
+
 | Vita | Action |
 | --- | --- |
 | Left stick | Move / strafe |
 | Right stick | Look / aim |
+| Front touchscreen | Drag to look / aim |
+| Rear touchpad | Upper half: zoom in, lower half: zoom out (sniper scope, binoculars) |
 | R | Fire |
 | L | Crouch |
 | Cross | Jump |
 | Circle | Use / activate |
-| Square | Reload / confirm in menus |
+| Square | Reload |
 | Triangle | Next weapon |
 | D-pad left | Previous weapon |
 | D-pad up | Binoculars |
 | D-pad down | Walk / run |
 | D-pad right | Map computer |
 | Select | Peek |
-| Start | Menu / back |
+| Start | Menu (pause) |
 
-The controls follow the game's default key bindings: if you changed the key
-bindings in the game's options, set them back to the defaults.
+In the menus: D-pad or left stick to move, Cross to confirm, Circle to go back,
+right stick to move the cursor, tap the front touchscreen to click.
+
+### Changing the controls
+
+Every button, the D-pad, the left stick's four directions and the rear touchpad's
+two halves can be bound to any action in **Controls** (main menu: Configuration →
+Controls; pause menu: Controls):
+
+1. Move to an action with the D-pad (the list scrolls), or tap it.
+2. Press **Cross**: the game asks for a button.
+3. Press the control you want for that action. A control already used by another
+   action swaps with it, so no control does two things. **Start** cancels.
+
+Changes count at once; **Circle** goes back, keeping them. On this screen the
+right stick (or a tap) moves the cursor to the other items and Cross clicks
+them: **Reset to Default Settings** brings back the table above. Actions without a control show
+"Not set" (weapon categories, alternate fire); bind them to a control if you
+like. Your controls are saved in `ux0:data/igi/pc/config.qvm`.
+
+**Look Sensitivity** and **Invert Look** on the same screen apply to the right
+stick and the touchscreen.
+
+Coming from an earlier version or a PC install: the first time this version
+starts, keyboard and mouse bindings (which a Vita cannot press) are replaced by
+the defaults above. Your old `config.qvm` is kept as
+`ux0:data/igi/pc/config_keyboard.qvm`.
 
 ## Optional settings
 
@@ -98,6 +127,9 @@ Create `ux0:data/igi/igi.cfg` (a text file, one setting per line):
 | `aspect=keep` | Original 4:3 picture with black bars (default: fill the 16:9 screen) |
 | `overlay=1` | Performance overlay (frame time, CPU time per frame) |
 | `update_check=0` | No check for a new version at start-up (default: on) |
+| `front_touch=0` | Front touchscreen off |
+| `rear_touch=0` | Rear touchpad off (if you rest your fingers on it) |
+| `stick_sensitivity=0.7` | Right stick look speed in gameplay, as a multiplier (default 1.0; the game's Look Sensitivity applies on top). The menu cursor speed is fixed |
 
 ## Updates
 
@@ -109,6 +141,12 @@ the game closes, puts the new files in place of its own and starts again;
 wrong the installed game keeps working, and the details are in
 `ux0:data/igi/update/update.log`. The installed version is shown in the bottom
 right corner of the boot screen.
+
+Installing an update needs **Enable Unsafe Homebrew** on in Settings > HENkaku
+Settings (the installer writes the game's own folder in `ux0:app`). With it off
+the game only tells you that a new version is available and how to turn it on,
+then starts as usual. If the Vita refuses to start the installer, the game shows
+the error and closes when you press a button: start it again from the LiveArea.
 
 ## Known issues
 
